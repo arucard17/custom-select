@@ -355,6 +355,10 @@ function builder(el, builderParams) {
         cstList.push(cstOptgroup);
       } else if (nodeList[i] instanceof HTMLElement
           && nodeList[i].tagName.toUpperCase() === 'OPTION') {
+
+        if(nodeList[i].disabled)
+            continue
+        
         const cstOption = document.createElement('div');
         cstOption.classList.add(builderParams.optionClass);
         cstOption.textContent = nodeList[i].text;
